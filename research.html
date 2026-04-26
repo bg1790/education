@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bhargav Gopal</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="Bhargav Gopal's personal website"
+      content="Developed by João Cardoso"
+    />
+    <meta name="author" content="João Cardoso" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/kube.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      .abstract-text {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 5px;
+        transition: opacity 0.2s ease-in-out 0.165s, visibility 0.2s ease-in-out 0.165s, max-height 0.3s ease-in-out 0.165s, padding 0.2s ease-in-out 0.165s;
+      }
+      .abstract-container:hover .abstract-text {
+        opacity: 1;
+        visibility: visible;
+        max-height: 2000px;
+        padding: 10px;
+        transition: opacity 0.2s ease-in-out 0.165s, visibility 0.2s ease-in-out 0.165s, max-height 0.3s ease-in-out 0.165s, padding 0.2s ease-in-out 0.165s;
+      }
+      .presentations-text {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 5px;
+        transition: opacity 0.2s ease-in-out 0.33s, visibility 0.2s ease-in-out 0.33s, max-height 0.3s ease-in-out 0.33s, padding 0.2s ease-in-out 0.33s;
+      }
+      .presentations-container:hover .presentations-text {
+        opacity: 1;
+        visibility: visible;
+        max-height: 2000px;
+        padding: 10px;
+        transition: opacity 0.2s ease-in-out 0.165s, visibility 0.2s ease-in-out 0.165s, max-height 0.3s ease-in-out 0.165s, padding 0.2s ease-in-out 0.165s;
+      }
+      .media-text {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 5px;
+        transition: opacity 0.2s ease-in-out 0.33s, visibility 0.2s ease-in-out 0.33s, max-height 0.3s ease-in-out 0.33s, padding 0.2s ease-in-out 0.33s;
+      }
+      .media-container:hover .media-text {
+        opacity: 1;
+        visibility: visible;
+        max-height: 2000px;
+        padding: 10px;
+        transition: opacity 0.2s ease-in-out 0.165s, visibility 0.2s ease-in-out 0.165s, max-height 0.3s ease-in-out 0.165s, padding 0.2s ease-in-out 0.165s;
+      }
+      .diagram-text {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 5px;
+        transition: opacity 0.2s ease-in-out 0.33s, visibility 0.2s ease-in-out 0.33s, max-height 0.3s ease-in-out 0.33s, padding 0.2s ease-in-out 0.33s;
+      }
+      .diagram-container:hover .diagram-text {
+        opacity: 1;
+        visibility: visible;
+        max-height: 2000px;
+        padding: 10px;
+        transition: opacity 0.2s ease-in-out 0.165s, visibility 0.2s ease-in-out 0.165s, max-height 0.3s ease-in-out 0.165s, padding 0.2s ease-in-out 0.165s;
+      }
+      .sections-container {
+        display: inline-block;
+        width: 100%;
+      }
+      .abstract-container,
+      .presentations-container,
+      .media-container,
+      .diagram-container {
+        display: inline-block;
+        position: relative;
+        margin: 0;
+      }
+      .section-label {
+        font-weight: normal;
+        font-size: 0.85em;
+        display: inline-block;
+      }
+      .section-separator {
+        margin: 0 0.5em;
+        color: #4e4e4e;
+      }
+      .abstract-text,
+      .presentations-text,
+      .media-text {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 10;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        min-width: 300px;
+        max-width: 900px;
+        width: 90vw;
+        white-space: normal;
+      }
+      .diagram-text {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 10;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        min-width: 400px;
+        max-width: 2500px;
+        white-space: normal;
+      }
+      /* Mobile/touch device styles - hide buttons on mobile */
+      @media (hover: none) and (pointer: coarse),
+      (max-width: 768px) {
+        .sections-container {
+          display: none !important;
+        }
+      }
+      /* Desktop - hide link styling, show as normal text */
+      /* Use (pointer: fine) to exclude touch devices like iPad that report hover */
+      @media (hover: hover) and (pointer: fine) {
+        .section-link-mobile {
+          color: inherit;
+          text-decoration: none;
+          pointer-events: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--Creator Credit-->
+    <div class="credit">
+      <p>
+        Website created by
+        <a href="https://www.linkedin.com/in/joaocardoso193/">João Cardoso</a>
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="main-nav">
+      <header class="group top-nav">
+        <div
+          class="navigation-toggle"
+          data-tools="navigation-toggle"
+          data-target="#navbar-1"
+        >
+          <span class="icon">Navigation</span>
+        </div>
+        <nav id="navbar-1" class="navbar item-nav">
+          <ul>
+            <li><a href="http://www.bhargavgopal.com">Home</a></li>
+            <li class="active"><a>Research</a></li>
+            <li><a href="http://www.bhargavgopal.com/cv">CV</a></li>
+            <li>
+              <a href="http://www.bhargavgopal.com/teaching"
+                >Teaching & Mentoring</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <div class="research section" id="research-section">
+      <div class="container">
+        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+        YOU CAN EDIT THE METADATA OF THE FIRST STUDY BY EDITING THE CONTENT INSIDE THE TAGS BELOW
+        USE THE PROVIDED TEMPLATE TO ADD NEW STUDIES
+        ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="study">
+          <ul class="research-list list-flat">
+            <li>
+              <h2 style="font-size: 0.95em;">
+                <a href="resources/paper1.pdf" target="_blank" style="color: blue;">Human Capital, Search Frictions, and All-Male Corporate Boardrooms</a>
+              </h2>
+            </li>
+            <li class="sections-container">
+              <span class="abstract-container">
+                <a href="#paper1-abstract" class="section-label section-link-mobile">Abstract</a>
+                <p id="paper1-abstract" class="abstract-text">
+                  This study examines the role of search frictions and gendered differences in human capital in contributing to the persistence of all-male corporate boardrooms.
+                  I use California's SB826, enacted in 2018 and requiring at least one female director on the corporate boards of listed firms by 2019, as a policy shock.
+                  Using a difference-in-differences design comparing listed California-based firms to listed non-California based firms, I find the quota increased the female share of boards by 11 percentage points while increasing the share of out-of-network and first-time female directors by 3 percentage points.
+                  Other measures of human capital and board quality remained stable. 
+                  The traditional shift-share instrumental variables approach used in related research dramatically over-states point-estimates, as pre-reform diversity is correlated with firm-size and growth trajectories. 
+                  My results indicate SB826 reduced firms' reliance on existing networks, suggesting that search frictions, rather than a lack of qualified candidates, previously contributed to the persistence of all-male boards.
+                
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="presentations-container">
+                <a href="#paper1-presentations" class="section-label section-link-mobile">Presentations</a>
+                <p id="paper1-presentations" class="presentations-text">
+                  Interdisciplinary Seminar Series at Columbia University (2022), 
+                  Discrimination and Diversity Workshop at University of East Anglia (2022), 
+                  17th Annual Economics Graduate Student Conference at Washington University in St. Louis (2022), 
+                  Society of Labor Economists (2024), 
+                  Canadian Economics Association (2024, 2025)
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="media-container">
+                <a href="#paper1-media" class="section-label section-link-mobile">Media</a>
+                <p id="paper1-media" class="media-text" style="font-size: 0.76em;">
+                  <a href="https://smith.queensu.ca/insight/content/Why-Board-Gender-Quotas-Are-Nothing-to-Fear.php" target="_blank">Non-Technical Summary</a>
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="diagram-container">
+                <a href="#paper1-diagram" class="section-label section-link-mobile">Illustrative Diagram</a>
+                <div id="paper1-diagram" class="diagram-text">
+                  <img src="img/paper1.png" style="max-width: 1000px; width: 100%;" alt="Paper 1 Diagram" />
+                </div>
+              </span>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+        ADD NEW STUDIES BELOW USING THE PROVIDED TEMPLATE
+        ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+        <div class="study">
+          <ul class="research-list list-flat">
+            <li>
+              <h2 style="font-size: 0.95em;">
+                <a href="resources/paper2.pdf" target="_blank" style="color: blue;">Do Non-Compete Agreements Help or Hurt Workers? Evidence from the NLSY97</a> <span style="font-weight: normal;">(with Xiangru Li and Luke Rawling)</span>
+              </h2>
+            </li>
+
+            <li class="sections-container">
+              <span class="abstract-container">
+                <a href="#paper2-abstract" class="section-label section-link-mobile">Abstract</a>
+                <p id="paper2-abstract" class="abstract-text">
+
+                 
+While non-compete agreements (NCs) are common, the incentives driving their use across various segments of the labor market and effects on workers remain poorly understood. 
+We show theoretically that for non-liquidity constrained workers, NCs compress the external wage profile and encourage firm-provided industry-specific human capital investments, which raises within-job wage growth. 
+This model predicts NCs are used among workers with highly transferable skills. 
+We also present a liquidity constraints model to understand NC usage among lower-wage workers.
+This model shows that NCs reduce costly turnover, but do not incentivize human capital investments. 
+Lower-wage workers who sign NCs receive a compensating wage differential, but contracted wages will fall below marginal product, lowering the labor share of income.
+Using novel data on NC usage from the NLSY97, we find NCs are more commonly used among higher skilled workers who perform more sophisticated tasks and have higher returns on experience, consistent with NCs being used to resolve hold-up problems. 
+Using a stacked difference-in-differences research design, we find that NCs raise job tenures by 6% and immediately increase wages by 10%. Six years after signing, the wage premium falls to 5%.
+NCs increase wage growth for higher-wage workers but reduce wage growth for lower-wage workers. We find no evidence of increased investment in formal training or upgrading of skills, suggesting investments prompted by NCs are likely informal.
+Our findings caution against blanket bans on NC usage.
+          
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="presentations-container">
+                <a href="#paper2-presentations" class="section-label section-link-mobile">Presentations</a>
+                <p id="paper2-presentations" class="presentations-text">
+                  Queen's University Faculty-PhD Working Group (2024), 
+                  Organizations and Markets Workshop at Smith School of Business (2024), 
+                  European Association of Labor Economists (2024), 
+                  Southern Economics Association (2024), 
+                  Administrative Sciences Association of Canada (2025),
+                  Canadian Public Economics Group (2025) by co-author, 
+                  <a href="resources/aea_nc_slides.pdf" target="_blank" style="color: blue; font-size: inherit;">American Economics Association Non-Compete Agreements in Low-Wage Markets Session (2026): slides</a>,
+                  Canadian Labour Economics Forum (2026),
+                  Society of Labor Economists (planned 2026),
+                  University of British Columbia, Stone Inequality Seminar Series (planned),
+                  Ohio State (planned 2026),
+                  IIOC (planned 2026)
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="media-container">
+                <a href="#paper2-media" class="section-label section-link-mobile">Media</a>
+                <p id="paper2-media" class="media-text" style="font-size: 0.76em;">
+                  <a href="https://smith.queensu.ca/insight/content/Should-Non-Compete-Agreements-Be-Non-Starters.php" target="_blank">Non-Technical Summary</a>, <a href="https://smith.queensu.ca/insight/content/Understanding-Non-Compete-Video.php" target="_blank">Video Interview</a>, <a href="https://www.thestar.com/business/noncompete-clauses-were-recently-banned-in-the-u-s-but-you-may-have-already-signed/article_295df646-08ac-11ef-ab02-1706ec797a60.html" target="_blank">Toronto Star</a>, <a href="https://atr.org/the-post-chevron-era-begins-with-a-gut-punch-to-the-ftcs-non-compete-ban/" target="_blank">Americans for Tax Reform</a>, <a href="https://www.cbc.ca/listen/live-radio/1-1414-bizdigest/clip/16177993-feds-unveil-supports-labour" target="_blank">CBC</a>
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="diagram-container">
+                <a href="#paper2-diagram" class="section-label section-link-mobile">Illustrative Diagram</a>
+                <div id="paper2-diagram" class="diagram-text">
+                  <img src="img/paper2.png" style="max-width: 1000px; width: 100%;" alt="Paper 2 Diagram" />
+                </div>
+              </span>
+            </li>
+
+
+
+          </ul>
+        </div>
+
+        <div class="study">
+          <ul class="research-list list-flat">
+            <li>
+              <h2 style="font-size: 0.95em;">
+                <a href="resources/paper3.pdf" target="_blank" style="color: blue;">Mandatory Disclosure and Female Representation in Corporate Leadership: Evidence from NASDAQ </a> <span style="font-weight: normal;">(with Dhruv Baswal, Tanvir Ahmed Khan, Bailey Kraus)</span>
+              </h2>
+            </li>
+            <li class="sections-container">
+              <span class="abstract-container">
+                <a href="#disclosure-abstract" class="section-label section-link-mobile">Abstract</a>
+                <p id="disclosure-abstract" class="abstract-text">
+                  We study how firms and financial markets respond to mandates requiring disclosure of information. The context is NASDAQ’s board diversity rule, a comply-or-explain regulation requiring listed firms to disclose board gender composition and either appoint at least one female director or explain non-compliance. Unlike gender quotas, this disclosure-based mandate operates through market pressures rather than financial penalties, allowing reputational concerns to shape firm behavior. Using NYSE-listed firms as a control group, we find that mandatory disclosure increases female board representation by 5%, with effects concentrated among larger firms and those with higher pre-regulation Environmental, Social, and Governance ratings. Event-study evidence shows abnormal returns of approximately 0.5% for NASDAQ firms around regulatory approval and -0.5% around judicial repeal, with larger effects for firms with all-male boards. Firms that choose to explain most often cite supply-side constraints such as an inability to find qualified candidates. Our findings indicate that mandatory disclosure generates positive valuation effects but only modestly increases gender diversity in corporate leadership. 
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="presentations-container">
+                <a href="#disclosure-presentations" class="section-label section-link-mobile">Presentations</a>
+                <p id="disclosure-presentations" class="presentations-text">
+                  Queen's University Economics Brown Bag (2025), 
+                  Queen's University Finance Brown Bag (2025), 
+                  Southern Economics Association (2025), 
+                  Administrative Sciences Association of Canada (2025)
+                </p>
+              </span>
+              <span class="section-separator"> | </span>
+              <span class="diagram-container">
+                <a href="#disclosure-diagram" class="section-label section-link-mobile">Illustrative Diagram</a>
+                <div id="disclosure-diagram" class="diagram-text">
+                  <img src="img/paper3.png" style="max-width: 1000px; width: 100%;" alt="Mandatory Disclosure Diagram" />
+                </div>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="study">
+          <ul class="research-list list-flat">
+            <li>
+              <h2 style="font-size: 0.95em;">
+                <a href="resources/nc_pandp.pdf" target="_blank" style="color: blue;">Non-Compete Agreements and Bargaining Power</a>, <i style="font-weight: normal;">AEA Papers and Proceedings</i>, <span style="font-weight: normal;">Volume 116, May 2026.</span> <span style="font-weight: normal;">(Joint with Xiangru Li and Luke Rawling)</span>
+              </h2>
+            </li>
+          </ul>
+        </div>
+
+        <div class="study">
+          <ul class="research-list list-flat">
+            <li>
+              <h2 style="font-size: 0.95em; font-weight: normal;">
+                The Effects of Non-Compete Regulation 
+              </h2>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+    <script>
+      // Mobile toggle behavior - detect mobile more reliably (works on iOS and Android)
+      function isMobileDevice() {
+        // Check for touch capability (works on both iOS and Android)
+        var hasTouch = ('ontouchstart' in window) || 
+                       (navigator.maxTouchPoints > 0) || 
+                       (navigator.msMaxTouchPoints > 0);
+        
+        // Check for mobile media query (works on both platforms)
+        var isMobileMedia = window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+                           window.matchMedia('(max-width: 768px)').matches;
+        
+        // Check user agent as fallback (for older browsers)
+        var isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        return hasTouch && (isMobileMedia || isMobileUA || window.innerWidth <= 768);
+      }
+      
+      function handleMobileToggle(link, e) {
+        // Check if mobile on each event (in case of resize)
+        var isMobile = isMobileDevice();
+        
+        // Only prevent default and toggle on mobile
+        if (!isMobile) {
+          return; // Let desktop behavior work
+        }
+        
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        
+        // Get the target element ID from the href
+        var targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+          targetId = targetId.substring(1);
+        }
+        var targetElement = document.getElementById(targetId);
+        
+        if (!targetElement) {
+          return;
+        }
+        
+        // Simple toggle - each button toggles its own content independently
+        if (targetElement.classList.contains('mobile-active')) {
+          // Close it
+          targetElement.classList.remove('mobile-active');
+          // Reset positioning
+          targetElement.style.top = '';
+          targetElement.style.left = '';
+          targetElement.style.right = '';
+        } else {
+          // Open this one
+          targetElement.classList.add('mobile-active');
+          
+          // Position content using fixed positioning relative to viewport
+          // Use requestAnimationFrame for better cross-platform compatibility
+          requestAnimationFrame(function() {
+            var linkRect = link.getBoundingClientRect();
+            var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            // Position directly below the button with minimal spacing (fixed is viewport-relative)
+            var topPosition = linkRect.bottom + 2;
+            
+            // Ensure content doesn't go off-screen
+            var maxTop = viewportHeight - 50; // Leave some space at bottom
+            if (topPosition > maxTop) {
+              // If it would go off-screen, position it above the button instead
+              topPosition = Math.max(10, linkRect.top - 10);
+            }
+            
+            // Set positioning (works on both iOS and Android)
+            targetElement.style.top = topPosition + 'px';
+            targetElement.style.left = '10px';
+            targetElement.style.right = '10px';
+            
+            // Force reflow for Android browsers
+            targetElement.offsetHeight;
+          });
+        }
+      }
+      
+      function initMobileToggle() {
+        // Add mobile class to body for CSS targeting
+        if (isMobileDevice()) {
+          document.body.classList.add('is-mobile');
+        }
+        
+        // Always attach handlers, but only toggle on mobile
+        // Skip links that already have handlers attached
+        var allLinks = document.querySelectorAll('.section-link-mobile:not([data-mobile-handler])');
+        
+        allLinks.forEach(function(link) {
+          // Mark as having handler attached to prevent duplicate handlers
+          link.setAttribute('data-mobile-handler', 'true');
+          
+          var lastActionTime = 0;
+          var actionHandled = false;
+          
+          // Unified handler function
+          function handleTap(e) {
+            if (!isMobileDevice()) {
+              return;
+            }
+            
+            var now = Date.now();
+            // Prevent double-firing within 300ms
+            if (actionHandled && (now - lastActionTime) < 300) {
+              e.preventDefault();
+              e.stopPropagation();
+              return;
+            }
+            
+            actionHandled = true;
+            lastActionTime = now;
+            
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            
+            // Handle the toggle
+            handleMobileToggle(link, e);
+            
+            // Reset flag after delay
+            setTimeout(function() {
+              actionHandled = false;
+            }, 350);
+          }
+          
+          // Primary handler - use touchend for mobile (works on both iOS and Android)
+          link.addEventListener('touchend', handleTap, { passive: false });
+          
+          // Click handler as fallback (for devices that need it)
+          link.addEventListener('click', handleTap, { passive: false });
+        });
+      }
+      
+      // Run when DOM is ready
+      function initializeWhenReady() {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            initMobileToggle();
+            // Retry after a short delay to catch any late-loading content
+            setTimeout(initMobileToggle, 100);
+          });
+        } else {
+          initMobileToggle();
+          // Retry after a short delay to catch any late-loading content
+          setTimeout(initMobileToggle, 100);
+        }
+      }
+      
+      initializeWhenReady();
+      
+      // Also initialize on window load as backup
+      window.addEventListener('load', function() {
+        initMobileToggle();
+      });
+      
+      // Re-check on resize in case device orientation changes
+      window.addEventListener('resize', function() {
+        if (isMobileDevice()) {
+          document.body.classList.add('is-mobile');
+        } else {
+          document.body.classList.remove('is-mobile');
+        }
+        // Re-initialize handlers on resize in case layout changed
+        initMobileToggle();
+      });
+    </script>
+  </body>
+</html>
